@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/page1_scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_page1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="33dp"
+        android:background="@drawable/ic_background">
+
+
+        //왼쪽 위 목록 버튼
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/btn_background"/>
+
+        //가운데 로고 이미지
+        <TextView
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="logo"
+            android:background="#AAAAAA"/>
+
+        //오른쪽 위 마이페이지 버튼
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_background"/>
+
+        //page1 - 날짜 텍스트
+        <EditText
+            android:id="@+id/page1_date"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:letterSpacing="-0.04"
+            android:background="@null"
+            android:fontFamily="@font/notosans_semibold" />
+
+        //page1 - 슈니는 여행중 텍스트
+        <TextView
+            android:id="@+id/page1_userName"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="102dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="슈니는 여행중!"
+            android:textSize="32dp"
+            android:textColor="#000000"
+            android:letterSpacing="-0.04"
+            android:fontFamily="@font/notosans" />
+
+        // page1 역 페이져
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/page1_pager"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="174dp"
+            android:layout_centerHorizontal="true"
+            android:clipToPadding="false"/>
+
+        // page1 페이저 아래 인디케이터
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="390dp"
+            app:piv_animationType="none"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="#AD73DC"
+            app:piv_unselectedColor="#1A000000"
+            app:piv_padding="8dp"
+            app:piv_radius="4dp"
+            app:piv_viewPager="@id/page1_pager" />
+
+        //page1 - 열차시간표 텍스트
+        <TextView
+            android:id="@+id/page1_timeTable_txt"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="434dp"
+            android:layout_marginLeft="16dp"
+            android:text="열차 시간표"
+            android:textSize="24dp"
+            android:textColor="#000000"
+            android:letterSpacing="-0.04"
+            android:fontFamily="@font/notosans" />
+
+        // 열차시간표 흰 박스
+        <LinearLayout
+            android:id="@+id/page1_timeTable"
+            android:layout_width="328dp"
+            android:layout_height="207dp"
+            android:orientation="vertical"
+            android:layout_below="@+id/page1_timeTable_txt"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/time_table"
+            android:elevation="24dp">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp">
+
+                <TextView
+                    android:id="@+id/page1_startTxt"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="19dp"
+                    android:layout_marginLeft="36dp"
+                    android:gravity="center"
+                    android:text="출발"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosans"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/page1_endTxt"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/page1_startTxt"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="19dp"
+                    android:gravity="center"
+                    android:text="도착"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosans"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/page1_transferTxt"
+                    android:layout_width="88dp"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/page1_endTxt"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginBottom="19dp"
+                    android:gravity="center"
+                    android:text="환승정보"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/notosans"
+                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textColor="#000000"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="320dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="3.38dp"
+                android:background="@drawable/line_53"/>
+
+            <ListView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:dividerHeight="0px"
+                android:divider="#ffffff" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

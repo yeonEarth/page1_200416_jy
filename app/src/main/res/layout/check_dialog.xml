@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="326dp"
+    android:layout_height="179dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/rectangle2"
+    tools:layout_height="wrap_content">
+
+    //page1 - 체크인 커스텀 다이얼로그
+    <TextView
+        android:id="@+id/ccheckIn_txt"
+        android:layout_width="159dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:text="안녕하세요?안녕하세요?안녕하세요?체크인?"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+
+    //"ㅇㅇ역이 아니예요!" 역마다 버튼길이 달라질수 있으니 한나에게 고정시켜달라고하3
+    <Button
+        android:id="@+id/dialog_negativeBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:background="#9B9B9B"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dialog_positiveBtn"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/dialog_positiveBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:background="#FFC107"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dialog_negativeBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
