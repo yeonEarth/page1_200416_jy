@@ -2,6 +2,7 @@ package com.example.xml_200415_jy;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PageAdapter extends PagerAdapter {
+
     private Context mContext;
     private HashMap<String,String> localArray;
     private List name;
 
+    boolean isExpand = false;
+    send send1;
 
-    public PageAdapter(Context context , HashMap<String,String> arrayList){
+
+    public PageAdapter(send send, Context context , HashMap<String,String> arrayList){
+        this.send1 = send;
         mContext = context;
         localArray = arrayList;
         name = new ArrayList(arrayList.keySet());
@@ -48,7 +54,6 @@ public class PageAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(@NonNull ViewGroup container, int position) {
         View view = null ;
-
 
         if (mContext != null) {
             // LayoutInflater를 통해 xml 뷰로 생성함
@@ -97,17 +102,25 @@ public class PageAdapter extends PagerAdapter {
             });
 
             //혜택보기 레이아웃 펼치기
-//            page1_gift_layout.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick (View view){
-//
-//                    page1_gift_layout.getLayoutParams().height = 120;
-//                    page1_gift_layout.setLayoutParams(page1_gift_layout.getLayoutParams());
-//                    page1_gift_layout.requestLayout();
-//
-//
-//                }
-//            });
+            page1_gift_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick (View view){
+
+                    if(!isExpand){
+                        page1_gift_layout.getLayoutParams().height = 200;
+                        page1_gift_layout.requestLayout();
+                        send1.send(isExpand);
+                        isExpand = true;
+
+                    }
+                    else {
+                        page1_gift_layout.getLayoutParams().height = 60;
+                        page1_gift_layout.requestLayout();
+                        send1.send(isExpand);
+                        isExpand = false;
+                    }
+                }
+            });
 
 
 

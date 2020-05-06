@@ -11,6 +11,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,7 +37,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements send {
 
     // 날짜 관련 변수들
     Calendar myCalendar = Calendar.getInstance();
@@ -93,11 +94,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 
 
@@ -212,11 +214,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         name = new ArrayList(arrayLocal.keySet());
         dataList = findViewById(R.id.list_item);
         itemAdapter = new ItemAdapter(this,trainDataItem);
         dataList.setAdapter(itemAdapter);
-        pagerAdapter = new PageAdapter(this,arrayLocal);
+        pagerAdapter = new PageAdapter(this, this,arrayLocal);
         viewPager = findViewById(R.id.page1_pager);
         viewPager.setAdapter(pagerAdapter);
         pageIndicatorView = findViewById(R.id.pageIndicatorView);
@@ -244,6 +247,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         scrollList();
+    }
+
+
+
+
+    @Override
+    public void send(boolean isExpand) {
+        if (!isExpand){
+            viewPager.getLayoutParams().height = 500;
+            viewPager.requestLayout();
+        } else {
+            viewPager.getLayoutParams().height = 400;
+            viewPager.requestLayout();
+        }
+
     }
 }
 

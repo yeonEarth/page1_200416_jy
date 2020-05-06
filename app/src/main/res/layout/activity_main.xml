@@ -81,8 +81,11 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="174dp"
-            android:layout_centerHorizontal="true"
-            android:clipToPadding="false"/>
+            android:layout_centerHorizontal="true">
+
+        </androidx.viewpager.widget.ViewPager>
+
+
 
         // page1 페이저 아래 인디케이터
         <com.rd.PageIndicatorView
@@ -90,7 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="390dp"
+            android:layout_below="@+id/page1_pager"
+            android:layout_marginTop="16dp"
             app:piv_animationType="none"
             app:piv_dynamicCount="true"
             app:piv_interactiveAnimation="true"
@@ -105,7 +109,8 @@
             android:id="@+id/page1_timeTable_txt"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:layout_marginTop="434dp"
+            android:layout_below="@+id/pageIndicatorView"
+            android:layout_marginTop="36dp"
             android:layout_marginLeft="16dp"
             android:text="열차 시간표"
             android:textSize="24dp"
