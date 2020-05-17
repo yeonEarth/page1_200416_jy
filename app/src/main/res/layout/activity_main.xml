@@ -6,14 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:id="@+id/layout_page1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="33dp"
-        android:background="@drawable/ic_background">
+        android:padding="16dp"
+        android:paddingBottom="33dp">
 
 
         //왼쪽 위 목록 버튼
@@ -21,8 +22,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:background="@drawable/btn_background"/>
 
         //가운데 로고 이미지
@@ -40,9 +41,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:background="@drawable/btn_background"/>
 
         //page1 - 날짜 텍스트
@@ -51,8 +51,6 @@
             android:layout_width="match_parent"
             android:layout_height="22dp"
             android:layout_marginTop="78dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:clickable="false"
             android:focusable="false"
             android:textSize="16dp"
@@ -67,13 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:layout_marginTop="102dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:text="슈니는 여행중!"
             android:textSize="32dp"
             android:textColor="#000000"
             android:letterSpacing="-0.04"
-            android:fontFamily="@font/notosans" />
+            android:fontFamily="@font/notosans_semibold" />
 
         // page1 역 페이져
         <androidx.viewpager.widget.ViewPager
@@ -111,17 +107,16 @@
             android:layout_height="43dp"
             android:layout_below="@+id/pageIndicatorView"
             android:layout_marginTop="36dp"
-            android:layout_marginLeft="16dp"
             android:text="열차 시간표"
             android:textSize="24dp"
             android:textColor="#000000"
             android:letterSpacing="-0.04"
-            android:fontFamily="@font/notosans" />
+            android:fontFamily="@font/notosans_semibold" />
 
         // 열차시간표 흰 박스
         <LinearLayout
             android:id="@+id/page1_timeTable"
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="207dp"
             android:orientation="vertical"
             android:layout_below="@+id/page1_timeTable_txt"
@@ -131,58 +126,53 @@
             android:elevation="24dp">
 
 
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="43dp">
 
                 <TextView
                     android:id="@+id/page1_startTxt"
-                    android:layout_width="88dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="19dp"
-                    android:layout_marginLeft="36dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="출발"
                     android:textSize="18dp"
-                    android:fontFamily="@font/notosans"
-                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/notosans_semibold"
                     android:layout_centerVertical="true"
                     android:textColor="#000000"/>
 
                 <TextView
                     android:id="@+id/page1_endTxt"
-                    android:layout_width="88dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/page1_startTxt"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="19dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="도착"
                     android:textSize="18dp"
-                    android:fontFamily="@font/notosans"
-                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/notosans_semibold"
                     android:layout_centerVertical="true"
                     android:textColor="#000000"/>
 
                 <TextView
                     android:id="@+id/page1_transferTxt"
-                    android:layout_width="88dp"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/page1_endTxt"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="19dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="환승정보"
                     android:textSize="18dp"
-                    android:fontFamily="@font/notosans"
-                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/notosans_semibold"
                     android:layout_centerVertical="true"
                     android:textColor="#000000"/>
-            </RelativeLayout>
+            </LinearLayout>
 
             <View
-                android:layout_width="320dp"
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="3.38dp"
                 android:background="@drawable/line_53"/>
@@ -196,6 +186,61 @@
 
         </LinearLayout>
 
+        //page1 - 나의 여행 스케쥴 텍스트
+        <TextView
+            android:id="@+id/page1_schedule_txt"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_below="@+id/page1_timeTable"
+            android:layout_marginTop="60dp"
+            android:text="나의 여행 스케쥴"
+            android:textSize="24dp"
+            android:textColor="#000000"
+            android:letterSpacing="-0.04"
+            android:fontFamily="@font/notosans_semibold" />
+
+        <Button
+            android:id="@+id/page1_schedule_btn"
+            android:layout_width="97dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/page1_timeTable"
+            android:layout_marginTop="60dp"
+            android:text="전체 스케쥴"
+            android:fontFamily="@font/notosans_semibold"
+            android:textColor="#FFFFFF"
+            android:textSize="11dp"
+            android:background="@drawable/rectangle_purple"/>
+
+        <LinearLayout
+            android:id="@+id/page1_schedule_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/page1_schedule_txt"
+            android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:id="@+id/page1_schedule_box"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/time_table"
+            android:padding="24dp"
+            android:elevation="24dp">
+
+            <TextView
+                android:id="@+id/schedule_day_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1일차"
+                android:fontFamily="@font/notosans"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        </LinearLayout>
 
     </RelativeLayout>
 </ScrollView>
